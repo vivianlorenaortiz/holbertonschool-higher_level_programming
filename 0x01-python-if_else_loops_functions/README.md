@@ -1,7 +1,7 @@
-#Learning Objectives
+Learning Objectives
 * At the end of this project, you are expected to be able to explain to anyone, without the help of Google:<br>
 
-##General
+General
 * Why Python programming is awesome (don’t forget to tweet today, with the has* htag #pythoniscool :))
 * Why indentation is so important in Python
 * How to use the if, if ... else statements
