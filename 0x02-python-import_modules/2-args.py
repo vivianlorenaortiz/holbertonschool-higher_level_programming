@@ -6,7 +6,7 @@ if __name__ == "__main__":
     if lg == 0:
         print("{}".format("0 arguments."))
     elif lg == 1:
-        print("{}".format("1 argument."))
+        print("{}".format("1 argument:"))
         print("1: {}".format(argv[1]))
     else:
         print("{:d} {}".format(lg, "arguments:"))
