@@ -1,0 +1,39 @@
+The ``3-say_my_name`` module
+==============================
+
+Using ``say_my_name``
+---------------------
+
+import module:
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+
+normal case:
+    >>> say_my_name("Vivian", "lorena")
+    My name is Vivianlorena
+
+first name is empty
+    >>> say_my_name("", "Smith")
+    My name is Smith
+
+first name and middle name empty
+    >>> say_my_name("", "")
+    My name is 
+
+no arguments:
+    >>> say_my_name()
+    Traceback (most recent call last):
+	      ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+first name is not a string:
+    >>> say_my_name(1, "Holberton")
+    Traceback (most recent call last):
+              ...
+    TypeError: first_name must be a string
+
+neither are strings:
+    >>> say_my_name(2, 2)
+    Traceback (most recent call last):
+              ...
+    TypeError: first_name must be a string
