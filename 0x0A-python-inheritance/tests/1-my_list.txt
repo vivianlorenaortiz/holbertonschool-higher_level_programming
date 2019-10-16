@@ -1,8 +1,47 @@
-The ``1-my_list`` module
-======================
+================================================================
+                   How to use 1-my_list.py
+================================================================
 
-Using ``MyList``
--------------------
+Class: MyList
+Description: inherits from list.
 
-Importing the function from the module:
-        >>> MyList = __import__("1-my_list").MyList
+Method:      def print_sorted(self):
+Description: prints the list.
+
+________________________________________________________________
+Import the function from the file:
+    >>> MyList = __import__("1-my_list").MyList
+append new elements:
+	 >>> my_list_1 = MyList()
+	 >>> my_list_1.append(1)
+	 >>> my_list_1.append(2)
+	 >>> my_list_1.append(3)
+	 >>> print(my_list_1)
+	 [1, 2, 3]
+
+already sorted list:
+         >>> my_list_1.print_sorted()
+         [1, 2, 3]
+
+unsorted list:
+         >>> my_list_2 = MyList()
+	 >>> my_list_2.append(1)
+	 >>> my_list_2.append(3)
+	 >>> my_list_2.append(2)
+         >>> print(my_list_2)
+	 [1, 3, 2]
+	 >>> my_list_2.print_sorted()
+	 [1, 2, 3]
+
+negative numbers:
+	 >>> my_list_2.append(-4)
+	 >>> print(my_list_2)
+         [1, 3, 2, -4]
+	 >>> my_list_2.print_sorted()
+	 [-4, 1, 2, 3]
+
+too many arguments:
+         >>> my_list_2.print_sorted(my_list_2)
+         Traceback (most recent call last):
+                   ...
+	 TypeError: print_sorted() takes 1 positional argument but 2 were given
