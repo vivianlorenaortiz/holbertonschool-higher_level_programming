@@ -1,11 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """  function that returns the number of lines of a text file: """
 
 
 def number_of_lines(filename=""):
     """returns the number of lines of a text file: """
-    cont = 0
-    with open(filename, encoding='utf-8') as f:
-        for line in f:
-            cont += 1
-    return cont
+    with open(filename, mode="r", encoding="utf-8") as myFile:
+
+        return(len(myFile.readlines()))
