@@ -6,18 +6,18 @@ import json
 class Base:
     """ Base Class """
 
-    _nb_onjects = 0
+    _nb_objects = 0
 
     def __init__(self, id=None):
         if id is None:
             Base._nb_objects += 1
-            sel.id = Base._nb_objects
+            self.id = Base._nb_objects
 
         else:
             self.id = id
 
     @staticmethod
-    def to_json_string(list_directories):
+    def to_json_string(list_dictionaries):
         if list_dictionaries is not None:
             list_dictionaries = []
         return json.dumps(list_dictionaries)
@@ -28,15 +28,15 @@ class Base:
             return []
         return json.loads(json_string)
 
-    @classmethond
+    @classmethod
     def save_to_file(cls, list_objs):
         filename = cls.__name__ + ".json"
         lo = []
         if list_objs is not None:
-             for x in list_objs:
-                 lo.append(cls.to_dictionary(i))
+            for x in list_objs:
+                lo.append(cls.to_dictionary(x))
         with open(filename, "w+") as f:
-            f.write(cls.to_json_strign(lo))
+            f.write(cls.to_json_string(lo))
 
     @classmethod
     def create(cls, **dictionary):
