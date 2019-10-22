@@ -18,13 +18,13 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        if list_dictionaries is not None:
+        if list_dictionaries is None:
             list_dictionaries = []
         return json.dumps(list_dictionaries)
 
     @staticmethod
     def from_json_string(json_string):
-        if json_string is not None or len(json_string) == 0:
+        if json_string is None or len(json_string) == 0:
             return []
         return json.loads(json_string)
 
@@ -40,15 +40,22 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
+        if cls.__name__ is "Rectangle":
                     tmp = cls(1, 1)
-                    tmp.update(**dictionary)
-                    return tmp
+        elif cls.__name__ is "Square":
+            tmp = cls(1)
+        tmp.update(**dictionary)
+        return tmp
 
     @classmethod
     def load_from_file(cls):
+        filename = cls.__name__ + ".json"
+        l = []
         try:
-            with open('{}.json'.format(cls.__name__), 'r') as f:
-                    tmpDict = cls.from_json_string(f.read())
-        except IOError:
-            return []
-        return [cls.create(**x) for x in tmpDict]
+            with open(filename, 'r') as f:
+                l = cls.from_json_string(f.read())
+            for i, e in enumerate(l):
+                l[i] = cls.create(**l[i])
+        except:
+            pass
+        return l
