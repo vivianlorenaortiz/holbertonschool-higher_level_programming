@@ -3,7 +3,7 @@
 from models.base import Base
 
 
-class Retangle(Base):
+class Rectangle(Base):
     """
     Rectangle Class
     """
@@ -14,50 +14,53 @@ class Retangle(Base):
         self.x = x
         self.y = y
 
-        def __str__(self):
-            return "[Rectangle] ({}) {}/{} - {}/{}".format \
-                (self.id, self.x, self.y, self.width, self.height)
+    def __str__(self):
+        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}".format(self.id,
+                                                                 self.x,
+                                                                 self.y,
+                                                                 self.width,
+                                                                 self.height)
 
-        def area(self):
-            """
+    def area(self):
+        """
             Calculates area
-            """
-            return self.width * self.height
+        """
+        return self.width * self.height
 
-        def display(self):
-            """
+    def display(self):
+        """
             displays
-            """
-            print('\n' * self.y, end="")
-            for i in range(0, self.height):
-                print(' ' * self.x, end="")
-                for j in range(0, self.width):
-                    print('#', end="")
-                print()
+        """
+        print('\n' * self.y, end="")
+        for i in range(0, self.height):
+            print(' ' * self.x, end="")
+            for j in range(0, self.width):
+                print('#', end="")
+            print()
 
-        def to_dictionary(self):
-            """
+    def to_dictionary(self):
+        """
             to dict
-            """
-            return {
-                'id': self.id,
-                'width': sel.width,
-                'height': self.height,
-                'x': self.x,
-                'y': self.y
-            }
+        """
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
 
-        def update(self, *arg, **kwargs):
-            """
+    def update(self, *args, **kwargs):
+        """
             update the class
-            """
+        """
 
         tmpArr = ["id", "width", "height", "x", "y"]
         if kwargs is not None:
             for key, value in kwargs.items():
                 setattr(self, key, value)
-        for x, arg in enumerate(args):
-            setattr(self, tmpArr[x], arg)
+                for x, arg in enumerate(args):
+                    setattr(self, tmpArr[x], arg)
 
     @property
     def width(self):
@@ -73,13 +76,12 @@ class Retangle(Base):
         self.__width = val
 
     @property
-
     def height(self):
-
         return self.__height
-    @height.setter
 
+    @height.setter
     def height(self, val):
+
         if type(val) is not int:
             raise TypeError("height must be an integer")
         if val <= 0:
@@ -87,9 +89,9 @@ class Retangle(Base):
         self.__height = val
 
     @property
-
     def x(self):
         return self.__x
+
     @x.setter
     def x(self, val):
         if type(val) is not int:
@@ -99,11 +101,10 @@ class Retangle(Base):
         self.__x = val
 
     @property
-
     def y(self):
         return self.__y
-    @y.setter
 
+    @y.setter
     def y(self, val):
         if type(val) is not int:
             raise TypeError("y must be an integer")
