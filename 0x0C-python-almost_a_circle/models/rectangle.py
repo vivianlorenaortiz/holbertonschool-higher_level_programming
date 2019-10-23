@@ -47,7 +47,7 @@ class Rectangle(Base):
         new_dict = self.__dict__
         n = {}
         n["width"] = new_dict["_Rectangle__width"]
-        n["heidht"] = new_dict["_Rectangle__height"]
+        n["height"] = new_dict["_Rectangle__height"]
         n["id"] = new_dict["id"]
         n["x"] = new_dict["_Rectangle__x"]
         n["y"] = new_dict["_Rectangle__y"]
