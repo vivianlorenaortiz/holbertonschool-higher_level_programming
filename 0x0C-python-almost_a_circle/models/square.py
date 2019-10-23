@@ -53,9 +53,10 @@ class Square(Rectangle):
         """
         to dict
         """
+        new_dict = self.__dict__
         n = {}
-        'id' = self.id,
-        'size' = self.size,
-        'x' = self.x,
-        'y' = self.y
+        n["size"] = new_dict["_Rectangle__width"]
+        n["id"] = new_dict["id"]
+        n["x"] = new_dict["_Rectangle__x"]
+        n["y"] = new_dict["_Rectangle__y"]
         return n
