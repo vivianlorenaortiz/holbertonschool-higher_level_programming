@@ -9,8 +9,8 @@ if __name__ == "__main__":
     password = sys.argv[2]
     name = sys.argv[3]
 
-    db = MySQLdb.connect("localhost",username,password,name)
-    cur = db.cursor ()
+    db = MySQLdb.connect("localhost", username, password, name)
+    cur = db.cursor()
     cur.execute("SELECT * FROM states")
     rows = cur.fetchall()
     for row in rows:
