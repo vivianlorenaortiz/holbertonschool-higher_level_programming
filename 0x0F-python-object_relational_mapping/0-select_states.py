@@ -4,17 +4,16 @@
 import MySQLdb
 import sys
 
-if __name__ =="__main__":
+if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     name = sys.argv[3]
-
 
     db = MySQLdb.connect("localhost",username,password,name)
     cur = db.cursor ()
     cur.execute("SELECT * FROM states")
     rows = cur.fetchall()
     for row in rows:
-         print(row)
+        print(row)
     cur.close()
     db.close()
