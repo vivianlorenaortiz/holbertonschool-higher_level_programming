@@ -9,7 +9,8 @@ import sys
 if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
-    name = sys.argv[3]
+    db = sys.argv[3]
+    name = sys.argv[4]
 
     db = MySQLdb.connect("localhost", username, password, name)
     cur = db.cursor()
