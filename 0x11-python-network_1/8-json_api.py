@@ -9,8 +9,6 @@ if __name__ == "__main__":
         payload = {'q': sys.argv[1]}
         r = requests.post('http://0.0.0.0:5000/search_user', payload)
     except:
-        r = requests.post('http://0.0.0.0:5000/search_user')
-    try:
         print("[{}] {}".format(r.json()["id"], r.json()["name"]))
     except:
         if not r.json():
