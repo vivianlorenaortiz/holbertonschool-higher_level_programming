@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
-let request = require('request');
-let fs = require('fs');
+const request = require('request');
+const fs = require('fs');
 
 request(process.argv[2], function (error, response, body) {
   if (error) {
