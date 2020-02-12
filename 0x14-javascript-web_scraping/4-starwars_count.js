@@ -1,20 +1,21 @@
 #!/usr/bin/node
-
 const request = require('request');
+const url = process.argv[2];
 
-request(process.argv[2], function (error, response, body) {
+request.get(url, function (error, response, body) {
   if (error) {
     console.log(error);
   } else {
     let count = 0;
-    for (let i = 0; i < JSON.parse(body).count; i++) {
-      const characters = (JSON.parse(body).results[i].characters);
-      for (let j = 0; j < characters.length; j++) {
-        if (characters[j].includes('18')) {
-          count += 1;
+    const results = JSON.parse(body).results;
+    results.forEach(function (result) {
+      const characters = result.characters;
+      characters.forEach(function (character) {
+        if (character.includes('/18')) {
+          count++;
         }
-      }
-    }
+      });
+    });
     console.log(count);
   }
 });
